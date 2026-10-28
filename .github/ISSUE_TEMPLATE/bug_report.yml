@@ -1,0 +1,42 @@
+name: Bug Report
+description: File a bug or unexpected behavior
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Please verify the issue occurs on the latest version of `kvdock`.
+  - type: input
+    id: version
+    attributes:
+      label: kvdock Version
+      placeholder: "0.1.0"
+    validations:
+      required: true
+  - type: dropdown
+    id: adapter
+    attributes:
+      label: Storage Adapter
+      options:
+        - Memory (`MemoryAdapter`)
+        - Filesystem (`FsAdapter`)
+        - Core Engine / Store
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: repro
+    attributes:
+      label: Minimal Reproduction
+      description: Short code snippet or minimal repository reproduction
+      placeholder: |
+        import { KVDock } from "kvdock";
+        import { MemoryAdapter } from "kvdock/adapters/memory";
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected vs Actual Behavior
+    validations:
+      required: true

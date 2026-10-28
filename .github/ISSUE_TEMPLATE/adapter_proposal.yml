@@ -1,0 +1,31 @@
+name: Adapter Proposal
+description: Propose or claim a new storage adapter
+labels: ["adapter", "help wanted"]
+body:
+  - type: input
+    id: backend
+    attributes:
+      label: Target Storage Backend
+      placeholder: "e.g. Upstash, Cloudflare KV, SQLite, Redis"
+    validations:
+      required: true
+  - type: dropdown
+    id: runtime
+    attributes:
+      label: Runtime Compatibility
+      options:
+        - Universal (Node, Deno, Bun, Edge)
+        - Node.js & Bun only
+        - Browser / Web standard only
+        - Edge runtime only
+    validations:
+      required: true
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Planned Capabilities
+      options:
+        - label: Conforms to `StorageAdapter` interface in `src/core/types.ts`
+        - label: Tests co-located in `src/adapters/<name>/index.test.ts`
+        - label: Benchmarks co-located in `src/adapters/<name>/index.bench.ts`
+        - label: Zero extra dependencies in core `package.json`

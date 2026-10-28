@@ -1,0 +1,6 @@
+# core governance
+src/core/** @zisam-glitch
+.github/** @zisam-glitch
+docs/adr/** @zisam-glitch
+package.json @zisam-glitch
+tsconfig.json @zisam-glitch
