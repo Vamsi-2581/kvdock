@@ -90,9 +90,9 @@ describe("KVDock core", () => {
     const invalidTTLs = [0, -1, 0.5, Number.POSITIVE_INFINITY, Number.NaN, "100"];
 
     for (const ttl of invalidTTLs) {
-      await expect(dock.set("k", "v", { ttl: ttl as any })).rejects.toThrow(TTLValidationError);
+      await expect(dock.set("k", "v", { ttl: ttl as number })).rejects.toThrow(TTLValidationError);
       await expect(
-        dock.setMany([{ key: "k", value: "v", options: { ttl: ttl as any } }]),
+        dock.setMany([{ key: "k", value: "v", options: { ttl: ttl as number } }]),
       ).rejects.toThrow(TTLValidationError);
     }
 
