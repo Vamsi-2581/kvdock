@@ -11,12 +11,7 @@ import type {
 
 function validateTTL(ttl: unknown): asserts ttl is number | undefined {
   if (ttl === undefined) return;
-  if (
-    typeof ttl !== "number" ||
-    !Number.isFinite(ttl) ||
-    !Number.isInteger(ttl) ||
-    ttl <= 0
-  ) {
+  if (typeof ttl !== "number" || !Number.isFinite(ttl) || !Number.isInteger(ttl) || ttl <= 0) {
     throw new TTLValidationError(ttl);
   }
 }
