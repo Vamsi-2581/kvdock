@@ -1,0 +1,60 @@
+{
+  "name": "kvdock",
+  "version": "0.1.0",
+  "description": "Universal key-value adapter engine with zero-dependency core",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    },
+    "./adapters/memory": {
+      "types": "./dist/adapters/memory/index.d.ts",
+      "import": "./dist/adapters/memory/index.js",
+      "require": "./dist/adapters/memory/index.cjs"
+    },
+    "./adapters/fs": {
+      "types": "./dist/adapters/fs/index.d.ts",
+      "import": "./dist/adapters/fs/index.js",
+      "require": "./dist/adapters/fs/index.cjs"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "test": "vitest run",
+    "test:coverage": "vitest run --coverage",
+    "lint": "biome check src",
+    "lint:fix": "biome check --write src",
+    "typecheck": "tsc --noEmit",
+    "check": "npm run typecheck && npm run lint && npm run test",
+    "changeset": "changeset"
+  },
+  "keywords": [
+    "kv",
+    "key-value",
+    "cache",
+    "storage",
+    "adapter",
+    "memory",
+    "redis"
+  ],
+  "author": "zisam shaikh <zisamshaikh7@gmail.com>",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^1.9.4",
+    "@changesets/cli": "^2.27.12",
+    "tsup": "^8.3.6",
+    "typescript": "^5.7.3",
+    "vitest": "^3.0.5"
+  }
+}
