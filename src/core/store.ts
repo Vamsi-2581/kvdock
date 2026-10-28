@@ -1,5 +1,14 @@
 import { TTLValidationError } from "./errors.js";
 import { defaultSerializer } from "./serializer.js";
+
+import type {
+  Serializer,
+  SetOptions,
+  StorageAdapter,
+  StoreMetrics,
+  StoreOptions,
+} from "./types.js";
+
 function validateTTL(ttl: unknown): asserts ttl is number | undefined {
   if (ttl === undefined) return;
   if (
@@ -12,13 +21,6 @@ function validateTTL(ttl: unknown): asserts ttl is number | undefined {
   }
 }
 
-import type {
-  Serializer,
-  SetOptions,
-  StorageAdapter,
-  StoreMetrics,
-  StoreOptions,
-} from "./types.js";
 
 export class KVDock {
   private readonly adapter: StorageAdapter;
