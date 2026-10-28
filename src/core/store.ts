@@ -16,7 +16,6 @@ function validateTTL(ttl: unknown): asserts ttl is number | undefined {
   }
 }
 
-
 export class KVDock {
   private readonly adapter: StorageAdapter;
   private readonly prefix: string;
