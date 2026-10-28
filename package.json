@@ -34,7 +34,8 @@
     "lint:fix": "biome check --write src",
     "typecheck": "tsc --noEmit",
     "check": "npm run typecheck && npm run lint && npm run test",
-    "changeset": "changeset"
+    "changeset": "changeset",
+    "changeset:publish": "node -e 'if (process.env.NPM_TOKEN) { require(\"child_process\").execSync(\"npm publish --access public\", { stdio: \"inherit\" }); } else { console.log(\"NPM_TOKEN secret not present, skipping registry publish\"); }'"
   },
   "keywords": [
     "kv",
