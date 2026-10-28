@@ -1,0 +1,16 @@
+{
+  "name": "kvdock",
+  "image": "mcr.microsoft.com/devcontainers/typescript-node:1-22-bookworm",
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "biomejs.biome"
+      },
+      "extensions": [
+        "biomejs.biome"
+      ]
+    }
+  },
+  "postCreateCommand": "npm install"
+}
